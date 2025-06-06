@@ -32,6 +32,8 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import JsBasics from './pages/JsBasics';
+import ReactLearning from './pages/ReactLearning';
 
 setupIonicReact();
 
@@ -44,6 +46,13 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
+        </Route>
+        
+        <Route exact path="/js-basics">
+          <JsBasics />
+        </Route>
+         <Route exact path="/react-learning">
+          <ReactLearning />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
