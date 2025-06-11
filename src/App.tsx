@@ -34,6 +34,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 import './theme/variables.css';
 import JsBasics from './pages/JsBasics';
 import ReactLearning from './pages/ReactLearning';
+import ReactFormPage from './pages/ReactFormPage';
 
 setupIonicReact();
 
@@ -54,9 +55,14 @@ const App: React.FC = () => (
          <Route exact path="/react-learning">
           <ReactLearning />
         </Route>
+         <Route exact path="/react-form">
+          <ReactFormPage />
+        </Route> 
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
 );
+
+
 
 export default App;

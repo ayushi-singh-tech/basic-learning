@@ -28,12 +28,24 @@ const handleSelectProduct = (product:IProduct) =>{
 };
 
 
+const handleRemoveProduct= (product: IProduct)=>{
+  const newProducts= selectedProducts.filter((productItem)=>{
+    return productItem.id != product.id;
+  }
+)
+
+  setSelectedProducts(newProducts);
+
+}
+
+
 
 
   return (
    <IonPage>
       <IonContent>
-        <IonCard>
+        <div style = {{display:"flex", flexWrap: "wrap"}}>
+          <IonCard>
       <IonCardHeader>
         <IonCardTitle>Card Title</IonCardTitle>
         <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
@@ -68,6 +80,42 @@ const handleSelectProduct = (product:IProduct) =>{
         
           </IonCardContent>
           </IonCard>
+           <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>Card Title</IonCardTitle>
+        <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+      </IonCardHeader>
+      <IonCardContent>
+      {selectedProducts.map((product, productIndex)=>{
+        return(
+          <div key={productIndex}>
+        <IonList>
+          <IonItem>
+            <IonThumbnail slot="start">
+              <img alt="Silhouette of mountains" 
+              src={product.image}
+               />
+            </IonThumbnail>
+
+
+            <div>
+            <IonLabel >{product.name}</IonLabel>
+            <div>{product.description}</div>
+            <br/>
+            <IonButton onClick={()=>{handleRemoveProduct(product)}}>
+              remove
+            </IonButton>
+            </div>
+          
+          </IonItem>
+          </IonList>
+          </div>
+            );
+      })}
+        
+          </IonCardContent>
+          </IonCard>
+        </div>
           </IonContent>
             </IonPage>
         );
